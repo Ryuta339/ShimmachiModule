@@ -8,12 +8,13 @@ PACKPATH= titrail/mokei/shimmachi
 PACKAGE	= titrail.mokei.shimmachi
 DOC		= doc
 CLPATH	= $(BIN):$(CLASSPATH)
+EP		= $(PACKAGE).main.Main
 LIBRARY = lib/jSerialComm-2.6.0.jar
 
 
 
-exec:
-	$(JAVA) -cp $(BIN) $(PC)
+exec: 
+	$(JAVA) -cp $(BIN) $(EP)
 
 
 all:
