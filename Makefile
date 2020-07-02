@@ -29,7 +29,7 @@ cline:
 	$(JAVA) -cp $(BIN) $(CLINE)
 
 
-doc:	$(SRC)/$(PACKPATH)/*/*.java # $(SRC)/$(PACKPATH)/*/*/*.java
+%.doc:	$(SRC)/$(PACKPATH)/%/*.java $(SRC)/$(PACKPATH)/%/*/*.java
 	$(JAVADOC) -d $(DOC) $^
 
 .PHONY: clean
