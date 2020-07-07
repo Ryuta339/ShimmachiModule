@@ -1,6 +1,10 @@
 package titrail.mokei.shimmachi.railroad;
 
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,6 +19,14 @@ public class RailroadWiringLogger implements RailroadWiring {
 	public RailroadWiringLogger (Logger logger) {
 		this._logger = logger;
 		this._tracks = new ArrayList <Track> ();
+	}
+
+	// Constructor
+	public RailroadWiringLogger (String logFilename)
+		throws IOException, SecurityException, IllegalArgumentException
+   	{
+		this (Logger.getLogger (RailroadWiringLogger.class.getName()));
+		this._logger.addHandler (new FileHandler (logFilename));
 	}
 
 	public boolean addTrack (Track track) {
@@ -56,4 +68,20 @@ public class RailroadWiringLogger implements RailroadWiring {
 		}
 		track.changeSpeed (newSpeed);
 	}
+
+
+	// 表示する
+	@Override
+	public void printStatus (PrintStream printStream) {
+		printStream.println ("============ Status ============");
+		_logger.log (Level.INFO, "============ Status ============");
+		Iterator <Track> iterator = _tracks.iterator();
+		while (iterator.hasNext ()) {
+			Track t = iterator.next ();
+			t.printStatus (printStream);
+		}
+		printStream.println ("================================");
+		_logger.log (Level.INFO, "================================");
+	}
+
 }

@@ -1,5 +1,7 @@
 package titrail.mokei.shimmachi.railroad;
 
+import java.io.PrintStream;
+
 public interface RailroadWiring {
 	// 線路が配線略図にあるかを判定する
 	abstract public boolean isIn (int trackNumber);
@@ -11,4 +13,8 @@ public interface RailroadWiring {
 	// 速さを変更する
 	abstract public void changeSpeed (int trackNumber, int newSpeed);
 	abstract public void changeSpeed (Track track, int newSpeed);
+
+
+	// 表示する
+	abstract public void printStatus (PrintStream printStream);
 }	
