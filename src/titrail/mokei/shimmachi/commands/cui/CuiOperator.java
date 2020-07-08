@@ -21,6 +21,9 @@ public class CuiOperator {
 		this._map.put ("change_speed", 
 				new SpeedControl (wiring, 
 					new CuiSpeedControlBoundary (ccb)));
+		this._map.put ("display",
+				new DisplayControl (wiring,
+					new CuiDisplayControlBoundary ()));
 	}
 
 	public void mainLoop () {

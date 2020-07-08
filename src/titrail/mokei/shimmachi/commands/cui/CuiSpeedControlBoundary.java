@@ -1,6 +1,7 @@
 package titrail.mokei.shimmachi.commands.cui;
 
 import titrail.mokei.shimmachi.commands.*;
+import titrail.mokei.shimmachi.railroad.RailroadWiring;
 
 import java.util.Scanner;
 
@@ -57,8 +58,8 @@ public class CuiSpeedControlBoundary implements SpeedControlBoundary {
 
 	// 状態を表示する
 	@Override
-	public void printStatus () {
-		_parent.printStatus ();
+	public void printStatus (RailroadWiring railroadWiring) {
+		_parent.printStatus (railroadWiring);
 	}
 
 	// メッセージを表示する

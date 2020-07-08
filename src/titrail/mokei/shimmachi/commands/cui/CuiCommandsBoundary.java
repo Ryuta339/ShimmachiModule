@@ -1,18 +1,22 @@
 package titrail.mokei.shimmachi.commands.cui;
 
 import titrail.mokei.shimmachi.commands.*;
+import titrail.mokei.shimmachi.railroad.RailroadWiring;
 
 import java.io.InputStream;
-import java.io.PrintStream;
 
 public class CuiCommandsBoundary implements CommandsBoundary {
+	private DisplayControlBoundary _display; // Delegation 
 	private InputStream _inputStream;
-	private PrintStream _printStream;
 
 	// Constructor
-	public CuiCommandsBoundary (InputStream inputStream, PrintStream printStream) {
+	public CuiCommandsBoundary (DisplayControlBoundary display, InputStream inputStream) {
+		this._display = display;
 		this._inputStream = inputStream;
-		this._printStream = printStream;
+	}
+	// Constructor
+	public CuiCommandsBoundary (DisplayControlBoundary display) {
+		this (display, System.in);
 	}
 
 	protected InputStream getInputStream () {
@@ -21,15 +25,14 @@ public class CuiCommandsBoundary implements CommandsBoundary {
 
 	// 状態を表示する
 	@Override
-	public void printStatus () {
-		// temporary
-		_printStream.println ("Print Status");
+	public void printStatus (RailroadWiring railroadWiring) {
+		_display.printStatus (railroadWiring);
 	}
 
 	// メッセージを表示する
 	@Override
 	public void printMessage (String message) {
-		_printStream.println (message);
+		_display.printMessage (message);
 	}
 }
 
