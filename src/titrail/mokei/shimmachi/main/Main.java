@@ -10,6 +10,11 @@ public class Main {
 		throws Exception
 	{
 		RailroadWiring wiring = LoggerCreater.createRailroadWiringLogger (3);
+		DisplayControlBoundary display = new CuiDisplayControlBoundary ();
+		CuiCommandsBoundary ccb = new CuiCommandsBoundary (display);
+		CuiOperator operator = new CuiOperator (wiring,ccb);
+
+		operator.mainLoop ();
 	}
 }
 
