@@ -3,6 +3,9 @@ package titrail.mokei.shimmachi.railroad;
 import java.io.PrintStream;
 
 public interface RailroadWiring {
+	// 配線略図に線路を追加する
+	abstract public boolean addTrack (Track track);
+
 	// 線路が配線略図にあるかを判定する
 	abstract public boolean isIn (int trackNumber);
 	abstract public boolean isIn (Track track);

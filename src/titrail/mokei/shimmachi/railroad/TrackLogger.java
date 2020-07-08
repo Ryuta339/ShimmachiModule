@@ -16,6 +16,7 @@ public class TrackLogger implements Track {
 	public TrackLogger (Logger logger) {
 		this._logger = logger;
 		this._speed = 0;
+		this._logger.log (Level.INFO, "Created Track.");
 	}
 
 	// Constructor
@@ -29,6 +30,7 @@ public class TrackLogger implements Track {
 	// 速さを変更する
 	@Override
 	public void changeSpeed (int newSpeed) {
+		_logger.log (Level.INFO, "Called changeSpeed.");
 		_speed = newSpeed;
 		_logger.log (Level.INFO, MSG_CHANGE_SPEED);
 	}

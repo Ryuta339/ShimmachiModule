@@ -19,6 +19,7 @@ public class RailroadWiringLogger implements RailroadWiring {
 	public RailroadWiringLogger (Logger logger) {
 		this._logger = logger;
 		this._tracks = new ArrayList <Track> ();
+		this._logger.log (Level.INFO, "Created RailroadWiring.");
 	}
 
 	// Constructor
@@ -30,28 +31,33 @@ public class RailroadWiringLogger implements RailroadWiring {
 	}
 
 	public boolean addTrack (Track track) {
+		_logger.log (Level.INFO, "Added track.");
 		return _tracks.add (track);
 	}
 
 	// 線路が配線略図にあるかを判定する
 	@Override
 	public boolean isIn (int trackNumber) {
+		_logger.log (Level.INFO, "Called isIn.");
 		return 0<=trackNumber && trackNumber<_tracks.size();
 	}
 	@Override
 	public boolean isIn (Track track) {
+		_logger.log (Level.INFO, "Called isIn.");
 		return _tracks.indexOf (track) >= 0;
 	}
 
 	// 速さが非負かつ上限以下か判定する
 	@Override
 	public boolean isInRange (int speed) {
+		_logger.log (Level.INFO, "Called isInRange.");
 		return 0<=speed && speed<=MAX_SPEED;
 	}
 
 	// 速さを変更する
 	@Override
 	public void changeSpeed (int trackNumber, int newSpeed) {
+		_logger.log (Level.INFO, "Called changeSpeed.");
 		if (!isIn(trackNumber) || !isInRange(newSpeed)) {
 			// エラー処理
 			_logger.log (Level.WARNING, ERR_IN_CHANGESPEED);
@@ -61,6 +67,7 @@ public class RailroadWiringLogger implements RailroadWiring {
 	}
 	@Override
 	public void changeSpeed (Track track, int newSpeed) {
+		_logger.log (Level.INFO, "Called changeSpeed.");
 		if (!isIn(track) || !isInRange(newSpeed)) {
 			// エラー処理
 			_logger.log (Level.WARNING, ERR_IN_CHANGESPEED);
