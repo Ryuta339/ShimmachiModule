@@ -23,7 +23,7 @@ public class CuiOperator {
 					new CuiSpeedControlBoundary (ccb)));
 		this._map.put ("display",
 				new DisplayControl (wiring,
-					new CuiDisplayControlBoundary ()));
+					ccb.getDisplay ()));
 	}
 
 	public void mainLoop () {

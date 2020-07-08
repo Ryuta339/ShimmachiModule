@@ -23,6 +23,10 @@ public class CuiCommandsBoundary implements CommandsBoundary {
 		return _inputStream;
 	}
 
+	protected DisplayControlBoundary getDisplay () {
+		return _display;
+	}
+
 	// 状態を表示する
 	@Override
 	public void printStatus (RailroadWiring railroadWiring) {
