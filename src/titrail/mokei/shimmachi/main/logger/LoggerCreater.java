@@ -17,32 +17,17 @@ public class LoggerCreater {
 	private static final String LOG_FILEDIR = "./log/";
 
 	public static final boolean SUPPRESS_STDOUT_LOGGER = true;
+	public static final boolean NOT_SUPPRESS_STDOUT_LOGGER = false;
 
-	public static RailroadWiring createRailroadWiringLogger (int ntracks) {
-		try {
-			Date date = new Date ();
-			DateFormat dFormat = new SimpleDateFormat ("yyyyMMdd-HHmmss");
-			String logFilename = LOG_FILEDIR + dFormat.format (date);
-
-			Logger logger = Logger.getLogger (Main.class.getName());
-			logger.addHandler (new FileHandler (logFilename));
-
-			RailroadWiring wiring = new RailroadWiringLogger (logger);
-			for (int i=0; i<ntracks; i++) {
-				Track t = new TrackLogger (logger);
-				wiring.addTrack (t);
-			}
-
-			return wiring;
-
-		} catch (IOException|SecurityException|IllegalArgumentException e) {
-			e.printStackTrace ();
-		}
-		return null;
-	}
-
+	/**
+	 * @param ntracks  線路の本数
+	 * @param suppressFlag コンソール出力を抑制するかどうか。
+	 *
+	 * @return 作られたRailroadWiringLogger
+	 *
+	 * suppressFlag にSUPPRESS_STDOUT_LOGGER を与えると、標準出力にログが出力されずにファイルだけに出力されるようになる。
+	 **/
 	public static RailroadWiring createRailroadWiringLogger (int ntracks, boolean suppressFlag) {
-		// 同じコードを書くのはバカ
 		try {
 			Date date = new Date ();
 			DateFormat dFormat = new SimpleDateFormat ("yyyyMMdd-HHmmss");
