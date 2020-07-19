@@ -9,7 +9,8 @@ public class Main {
 	public static void main (String[] args) 
 		throws Exception
 	{
-		RailroadWiring wiring = LoggerCreater.createRailroadWiringLogger (3);
+		RailroadWiring wiring = LoggerCreater.createRailroadWiringLogger (3,
+				LoggerCreater.SUPPRESS_STDOUT_LOGGER);
 		DisplayControlBoundary display = new CuiDisplayControlBoundary ();
 		CuiCommandsBoundary ccb = new CuiCommandsBoundary (display);
 		CuiOperator operator = new CuiOperator (wiring,ccb);
