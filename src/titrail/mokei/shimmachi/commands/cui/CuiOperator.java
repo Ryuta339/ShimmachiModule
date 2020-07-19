@@ -24,6 +24,9 @@ public class CuiOperator {
 		this._map.put ("display",
 				new DisplayControl (wiring,
 					ccb.getDisplay ()));
+		this._map.put ("exit",
+				new ExitCommands (
+					new CuiExitCommandsBoundary (ccb)));
 	}
 
 	public void mainLoop () {
