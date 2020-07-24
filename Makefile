@@ -34,4 +34,4 @@ doc:	$(SRC)/$(PACKPATH)/*/*.java $(SRC)/$(PACKPATH)/*/*/*.java
 
 .PHONY: clean
 clean:
-	rm -rf $(BIN)/$(PACKPATH)/*/*.class
+	rm -rf $(BIN)/$(PACKPATH)/*/*.class $(BIN)/$(PACKPATH)/*/*/*.class
