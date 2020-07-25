@@ -8,7 +8,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class RailroadWiringLogger implements RailroadWiring {
+public class RailroadWiringLogger extends RailroadWiring {
 	private Logger _logger;
 	private ArrayList <Track> _tracks;
 
@@ -64,6 +64,7 @@ public class RailroadWiringLogger implements RailroadWiring {
 			return;
 		}
 		_tracks.get (trackNumber). changeSpeed (newSpeed);
+		setChanged ();
 	}
 	@Override
 	public void changeSpeed (Track track, int newSpeed) {
@@ -74,10 +75,17 @@ public class RailroadWiringLogger implements RailroadWiring {
 			return;
 		}
 		track.changeSpeed (newSpeed);
+		setChanged ();
 	}
 
 
 	// 表示する
+	@Override
+	public void printStatus () {
+		setChanged ();
+		System.out.println (hasChanged());
+		notifyObservers (this);
+	}
 	@Override
 	public void printStatus (PrintStream printStream) {
 		printStream.println ("============ Status ============");
@@ -91,4 +99,16 @@ public class RailroadWiringLogger implements RailroadWiring {
 		_logger.log (Level.INFO, "================================");
 	}
 
+
+	@Override
+	public String toString () {
+		StringBuilder builder = new StringBuilder ("============ Status ============\n");
+		Iterator <Track> iterator = _tracks.iterator ();
+		while (iterator.hasNext ()) {
+			Track t = iterator.next ();
+			builder.append (t.toString() + "\n");
+		}
+		builder.append ("================================\n");
+		return builder.toString ();
+	}
 }

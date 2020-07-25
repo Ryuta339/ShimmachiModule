@@ -1,8 +1,9 @@
 package titrail.mokei.shimmachi.railroad;
 
 import java.io.PrintStream;
+import java.util.Observable;
 
-public interface RailroadWiring {
+abstract public class RailroadWiring extends Observable {
 	// 配線略図に線路を追加する
 	abstract public boolean addTrack (Track track);
 
@@ -19,5 +20,6 @@ public interface RailroadWiring {
 
 
 	// 表示する
+	abstract public void printStatus ();
 	abstract public void printStatus (PrintStream printStream);
 }	

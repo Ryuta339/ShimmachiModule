@@ -41,5 +41,12 @@ public class TrackLogger implements Track {
 		printStream.printf ("Speed: %d\n", _speed);
 		_logger.log (Level.INFO, "Speed: %d\n", _speed);
 	}
+
+	@Override
+	public String toString () {
+		StringBuilder builder = new StringBuilder ("New Speed: ")
+			.append (_speed);
+		return builder.toString ();
+	}
 }
 

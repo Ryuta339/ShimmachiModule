@@ -50,7 +50,8 @@ public class SpeedControl implements Commands {
 		int trackNumber = specifyTrack ();
 		int newSpeed = decideNewSpeed ();
 		_wiring.changeSpeed (trackNumber, newSpeed);
-		_boundary.printStatus (_wiring);
+		_wiring.notifyObservers(_wiring);
+		// _boundary.printStatus (_wiring);
 	}
 
 	// 操作する

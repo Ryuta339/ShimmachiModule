@@ -15,7 +15,8 @@ public class DisplayControl implements Commands {
 	// main method
 	// 表示する
 	protected void display () {
-		_boundary.printStatus (_wiring);
+		// _boundary.printStatus (_wiring);
+		_wiring.printStatus ();
 	}
 
 	// 操作する

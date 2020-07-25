@@ -12,6 +12,7 @@ public class Main {
 		RailroadWiring wiring = LoggerCreater.createRailroadWiringLogger (3,
 				LoggerCreater.SUPPRESS_STDOUT_LOGGER);
 		DisplayControlBoundary display = new CuiDisplayControlBoundary ();
+		wiring.addObserver (display);
 		CuiCommandsBoundary ccb = new CuiCommandsBoundary (display);
 		CuiOperator operator = new CuiOperator (wiring,ccb);
 

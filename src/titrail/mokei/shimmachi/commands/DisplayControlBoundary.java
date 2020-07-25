@@ -1,4 +1,6 @@
 package titrail.mokei.shimmachi.commands;
 
-public interface DisplayControlBoundary extends CommandsBoundary {
+import java.util.Observer;
+
+public interface DisplayControlBoundary extends CommandsBoundary, Observer {
 }
