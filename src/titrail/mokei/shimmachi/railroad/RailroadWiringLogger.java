@@ -83,9 +83,9 @@ public class RailroadWiringLogger extends RailroadWiring {
 	@Override
 	public void printStatus () {
 		setChanged ();
-		System.out.println (hasChanged());
 		notifyObservers (this);
 	}
+	/*
 	@Override
 	public void printStatus (PrintStream printStream) {
 		printStream.println ("============ Status ============");
@@ -98,10 +98,12 @@ public class RailroadWiringLogger extends RailroadWiring {
 		printStream.println ("================================");
 		_logger.log (Level.INFO, "================================");
 	}
+	*/
 
 
 	@Override
 	public String toString () {
+		(new Throwable()).printStackTrace ();
 		StringBuilder builder = new StringBuilder ("============ Status ============\n");
 		Iterator <Track> iterator = _tracks.iterator ();
 		while (iterator.hasNext ()) {

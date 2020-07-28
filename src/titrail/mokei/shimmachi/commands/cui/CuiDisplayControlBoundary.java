@@ -22,7 +22,7 @@ public class CuiDisplayControlBoundary implements DisplayControlBoundary {
 	// 状態を表示する
 	@Override
 	public void printStatus (RailroadWiring railroadWiring) {
-		railroadWiring.printStatus (_printStream);
+		railroadWiring.printStatus ();
 	}
 
 	// メッセージを表示する

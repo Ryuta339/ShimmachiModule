@@ -21,5 +21,5 @@ abstract public class RailroadWiring extends Observable {
 
 	// 表示する
 	abstract public void printStatus ();
-	abstract public void printStatus (PrintStream printStream);
+	// abstract public void printStatus (PrintStream printStream);
 }	

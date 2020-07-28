@@ -6,7 +6,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class TrackLogger implements Track {
+public class TrackLogger extends Track {
 	private Logger _logger;
 	private int _speed;
 
@@ -37,10 +37,17 @@ public class TrackLogger implements Track {
 
 	// 表示する
 	@Override
+	public void printStatus () {
+		setChanged ();
+		notifyObservers (this);
+	}
+	/*
+	@Override
 	public void printStatus (PrintStream printStream) {
 		printStream.printf ("Speed: %d\n", _speed);
 		_logger.log (Level.INFO, "Speed: %d\n", _speed);
 	}
+	*/
 
 	@Override
 	public String toString () {
