@@ -4,6 +4,8 @@ import java.io.PrintStream;
 import java.util.Observable;
 
 abstract public class Track extends Observable {
+	protected static final String MSG_CHANGE_SPEED = "Speed is changed";
+
 	// 速さを変更する
 	abstract public void changeSpeed (int newSpeed);
 

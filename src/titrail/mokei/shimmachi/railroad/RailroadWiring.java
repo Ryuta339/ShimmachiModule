@@ -4,6 +4,9 @@ import java.io.PrintStream;
 import java.util.Observable;
 
 abstract public class RailroadWiring extends Observable {
+	protected static final int MAX_SPEED = 100;
+	protected static final String ERR_IN_CHANGESPEED = "Illegal parameter was passed in RailroadWiring$changeSpeed.";
+
 	// 配線略図に線路を追加する
 	abstract public boolean addTrack (Track track);
 
