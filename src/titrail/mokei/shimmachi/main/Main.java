@@ -21,8 +21,11 @@ public class Main {
 			wiring.addTrack (t);
 		}
 		DisplayControlBoundary display = new CuiDisplayControlBoundary ();
+		ObserverLogger ol = ObserverLogger.getObserverLogger (
+				ObserverLogger.SUPPRESS_STDOUT_LOGGER);
 		
 		wiring.addObserver (display);
+		wiring.addObserver (ol);
 		CuiCommandsBoundary ccb = new CuiCommandsBoundary (display);
 		CuiOperator operator = new CuiOperator (wiring,ccb);
 

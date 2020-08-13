@@ -39,6 +39,7 @@ public class RailroadWiringWithList extends RailroadWiring {
 	public void changeSpeed (int trackNumber, int newSpeed) {
 		if (!isIn(trackNumber) || !isInRange(newSpeed)) {
 			// エラー処理
+			// throw すべき？
 			return;
 		}
 		_tracks.get (trackNumber). changeSpeed (newSpeed);
@@ -48,6 +49,7 @@ public class RailroadWiringWithList extends RailroadWiring {
 	public void changeSpeed (Track track, int newSpeed) {
 		if (!isIn(track) || !isInRange(newSpeed)) {
 			// エラー処理
+			// throw すべき？
 			return;
 		}
 		track.changeSpeed (newSpeed);
