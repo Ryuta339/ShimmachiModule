@@ -17,6 +17,7 @@ public class SpeedControl implements Commands {
 	}
 
 	// 線路を特定する
+	// DirectionControl と共通するメソッドなので後で別クラスを作って移譲する
 	protected int specifyTrack () {
 		_boundary.requireTrack ();
 		int trackNumber = _boundary.inputTrack ();

@@ -17,7 +17,7 @@ public class ConcreteTrack extends Track {
 	public ConcreteTrack (int index) {
 		this._index = index;
 		this._speed = 0;
-		this._state = LeftDirection.getInstance ();
+		this._state = StopDirection.getInstance ();
 	}
 
 	/**

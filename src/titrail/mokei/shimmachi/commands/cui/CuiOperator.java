@@ -24,6 +24,9 @@ public class CuiOperator {
 		this._map.put ("display",
 				new DisplayControl (wiring,
 					ccb.getDisplay ()));
+		this._map.put ("change_direction",
+				new DirectionControl (wiring,
+					new CuiDirectionControlBoundary (ccb)));
 		this._map.put ("exit",
 				new ExitCommands (
 					new CuiExitCommandsBoundary (ccb)));
