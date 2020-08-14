@@ -15,14 +15,16 @@ public class Main {
 		*/
 		int ntracks = 3;
 
+		ObserverLogger ol = ObserverLogger.getObserverLogger (
+				ObserverLogger.SUPPRESS_STDOUT_LOGGER);
+
 		RailroadWiring wiring = new RailroadWiringWithList ();
 		for (int i=0; i<ntracks; i++) {
 			Track t = new ConcreteTrack (i+1);
+			t.addObserver (ol);
 			wiring.addTrack (t);
 		}
 		DisplayControlBoundary display = new CuiDisplayControlBoundary ();
-		ObserverLogger ol = ObserverLogger.getObserverLogger (
-				ObserverLogger.SUPPRESS_STDOUT_LOGGER);
 		
 		wiring.addObserver (display);
 		wiring.addObserver (ol);
