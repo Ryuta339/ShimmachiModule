@@ -9,6 +9,9 @@ abstract public class Track extends Observable {
 	// 速さを変更する
 	abstract public void changeSpeed (int newSpeed);
 
+	// 方向を変更する
+	abstract public void changeDirection (DirectionState newState);
+
 	// 表示する
 	abstract public void printStatus ();
 	// abstract public void printStatus (PrintStream printStream);

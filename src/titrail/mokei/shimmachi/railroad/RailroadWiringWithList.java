@@ -56,6 +56,28 @@ public class RailroadWiringWithList extends RailroadWiring {
 		super.setChanged ();
 	}
 
+	// 方向を変更する
+	@Override
+	public void changeDirection (int trackNumber, DirectionState newState) {
+		if (!isIn (trackNumber)) {
+			// エラー処理
+			// throw すべき？
+			return;
+		}
+		_tracks.get (trackNumber). changeDirection (newState);
+		super.setChanged ();
+	}
+	@Override
+	public void changeDirection (Track track, DirectionState newState) {
+		if (!isIn (track)) {
+			// エラー処理
+			// throw すべき？
+			return;
+		}
+		track.changeDirection (newState);
+		super.setChanged ();
+	}
+
 
 	// 表示する
 	@Override

@@ -7,6 +7,8 @@ abstract public class RailroadWiring extends Observable {
 	protected static final int MAX_SPEED = 100;
 	protected static final String ERR_IN_CHANGESPEED = "Illegal parameter was passed in RailroadWiring$changeSpeed.";
 
+	
+
 	// 配線略図に線路を追加する
 	abstract public boolean addTrack (Track track);
 
@@ -20,6 +22,10 @@ abstract public class RailroadWiring extends Observable {
 	// 速さを変更する
 	abstract public void changeSpeed (int trackNumber, int newSpeed);
 	abstract public void changeSpeed (Track track, int newSpeed);
+
+	// 方向を変更する
+	abstract public void changeDirection (int trackNumber, DirectionState newState);
+	abstract public void changeDirection (Track track, DirectionState newState);
 
 
 	// 表示する
